@@ -3716,7 +3716,6 @@ GameObject:
   - component: {fileID: 5454018839315732947}
   - component: {fileID: 5454018839278285625}
   - component: {fileID: 1597819385982555013}
-  - component: {fileID: 1677264032}
   - component: {fileID: 5915627639666458424}
   m_Layer: 0
   m_Name: Dog_SaintBernard_01
@@ -3824,19 +3823,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.14950119, y: 0.2304614, z: 0.29755148}
   m_Center: {x: 0.00042479238, y: 0.09699144, z: 0.027924916}
---- !u!114 &1677264032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5454018839306256611}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d42b7d492d6341d3825f1db8f3a7efb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  countText: {fileID: 0}
 --- !u!114 &5915627639666458424
 MonoBehaviour:
   m_ObjectHideFlags: 0

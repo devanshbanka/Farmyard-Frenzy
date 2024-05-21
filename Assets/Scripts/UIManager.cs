@@ -8,19 +8,21 @@ public class UIManager : MonoBehaviour
     public GameObject GameOverScreen;
     public GameObject PlayingScreen;
     public GameObject CountObject;
+    public GameObject HomeScreen;
 
     public TextMeshProUGUI Score;
     public TextMeshProUGUI Best;
     public TextMeshProUGUI CountText;
 
-    public float count = 0;
+    public GameObject ExplosionPrefab;
+
+    public int count = 0;
     private int highscore;
 
     private bool isGameOver = false;
 
     private void Start()
     {
-        isGameOver = false;
         highscore = PlayerPrefs.GetInt("highscore", highscore);
     }
 
@@ -28,7 +30,7 @@ public class UIManager : MonoBehaviour
     {
         if (count > highscore)
         {
-            int highscore = (int)count;
+            highscore = count;
             Score.text = "Score: " + count;
             Best.text = "Best: " + count;
 
@@ -53,6 +55,14 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void SetGameStart()
+    {
+        isGameOver = false;
+        PlayingScreen.SetActive(true);
+        CountObject.SetActive(true);
+        HomeScreen.SetActive(false);
+    }
+
     public void SetGameOver()
     {
         isGameOver = true;
@@ -68,7 +78,19 @@ public class UIManager : MonoBehaviour
 
     public void CountUp()
     {
-        count += 0.5f;
+        count += 1;
         CountText.text = ""+count;
+    }
+
+    public void Explosion(Vector3 Position)
+    {
+        ExplosionPrefab.SetActive(true);
+        GameObject explosion = Instantiate(ExplosionPrefab, Position, Quaternion.identity);
+        ParticleSystem ps = explosion.GetComponent<ParticleSystem>();
+        if (ps != null)
+        {
+            ps.Play();
+        }
+        Destroy(explosion, ps.main.duration);
     }
 }

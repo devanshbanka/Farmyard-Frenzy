@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class HomeScreen : MonoBehaviour
 {
+    public int GameMode;
+
     public GameObject PlayingScreen;
     public GameObject CountObject;
+
+    //public int GameMode = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -19,10 +23,28 @@ public class HomeScreen : MonoBehaviour
         
     }
 
-    public void StartButton()
+    //public void StartButton()
+    //{
+    //    PlayingScreen.SetActive(true);
+    //    CountObject.SetActive(true);
+    //    this.gameObject.SetActive(false);
+    //}
+
+    public void EasyButton()
     {
-        PlayingScreen.SetActive(true);
-        CountObject.SetActive(true);
-        this.gameObject.SetActive(false);
+        GameMode = 1;
+        UIManager.Instance.SetGameStart();
+    }
+
+    public void MediumButton()
+    {
+        GameMode = 2;
+        UIManager.Instance.SetGameStart();
+    }
+
+    public void HardButton()
+    {
+        GameMode = 3;
+        UIManager.Instance.SetGameStart();
     }
 }
